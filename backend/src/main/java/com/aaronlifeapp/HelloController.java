@@ -1,4 +1,4 @@
-package org.example.springhello;
+package com.aaronlifeapp;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;

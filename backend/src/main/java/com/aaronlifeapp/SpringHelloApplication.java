@@ -1,4 +1,4 @@
-package org.example.springhello;
+package com.aaronlifeapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
