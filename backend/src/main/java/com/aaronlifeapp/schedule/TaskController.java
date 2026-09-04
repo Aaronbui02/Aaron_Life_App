@@ -16,7 +16,7 @@ public class TaskController {
 
     @GetMapping
     public List<Task> getTasksForList(@PathVariable String listId) {
-        return taskRepository.findByTaskListId(listId);
+        return taskRepository.findByTaskListIdOrderByDateAsc(listId);
     }
 
     @PostMapping
@@ -25,5 +25,24 @@ public class TaskController {
                 .orElseThrow(() -> new RuntimeException("TaskList not found: " + listId));
         task.setTaskList(taskList);
         return taskRepository.save(task);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTask(@PathVariable String id) {
+        taskRepository.deleteById(id);
+    }
+
+    @PutMapping("/{id}")
+    public Task updateTask(@PathVariable String id, @RequestBody Task updated) {
+        Task existing = taskRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Task not found: " + id));
+        if (updated.getTitle() != null) {
+            existing.setTitle(updated.getTitle());
+        }
+        if (updated.getDate() != null) {
+            existing.setDate(updated.getDate());
+        }
+        existing.setCompleted(updated.isCompleted());
+        return taskRepository.save(existing);
     }
 }

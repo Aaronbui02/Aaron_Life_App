@@ -13,6 +13,7 @@ public class Task {
     private String id;
     private String title;
     private String date;
+    private boolean completed;
 
     @ManyToOne
     private TaskList taskList;
@@ -26,6 +27,9 @@ public class Task {
     public void setDate(String date) {
         this.date = date;
     }
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
     public void setTaskList(TaskList taskList) {
         this.taskList = taskList;
     }
@@ -38,6 +42,9 @@ public class Task {
     }
     public String getDate() {
         return this.date;
+    }
+    public boolean isCompleted() {
+        return this.completed;
     }
     public TaskList getTaskList() {
         return this.taskList;

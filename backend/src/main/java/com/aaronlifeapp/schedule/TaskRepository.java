@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, String> {
     List<Task> findByTaskListId(String taskListId);
+    List<Task> findByTaskListIdOrderByDateAsc(String taskListId);
 }
