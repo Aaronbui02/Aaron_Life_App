@@ -1,36 +1,45 @@
 package com.aaronlifeapp.schedule;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Event {
+public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String title;
     private String date;
 
-    //Setter method
-    public void setId(String id){
+    @ManyToOne
+    private TaskList taskList;
+
+    public void setId(String id) {
         this.id = id;
     }
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title;
     }
-    public void setDate(String date){
+    public void setDate(String date) {
         this.date = date;
     }
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
+    }
 
-    //Getter method
-    public String getId(){
+    public String getId() {
         return this.id;
     }
-    public String getTitle(){
+    public String getTitle() {
         return this.title;
     }
-    public String getDate(){
+    public String getDate() {
         return this.date;
+    }
+    public TaskList getTaskList() {
+        return this.taskList;
     }
 }

@@ -1,16 +1,16 @@
 package com.aaronlifeapp.schedule;
+
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-public class Event {
+public class TaskList {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String title;
-    private String date;
 
     //Setter method
     public void setId(String id){
@@ -18,9 +18,6 @@ public class Event {
     }
     public void setTitle(String title){
         this.title = title;
-    }
-    public void setDate(String date){
-        this.date = date;
     }
 
     //Getter method
@@ -30,7 +27,5 @@ public class Event {
     public String getTitle(){
         return this.title;
     }
-    public String getDate(){
-        return this.date;
-    }
+
 }
