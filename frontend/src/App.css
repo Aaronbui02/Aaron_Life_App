@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  background-color: #000000;
+  color: #00ff41;
+  font-family: 'Courier New', monospace;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  text-shadow: 0 0 8px #00ff41;
+}
